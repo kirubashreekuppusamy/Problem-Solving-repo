@@ -1,0 +1,26 @@
+class Solution:
+    def spirallyTraverse(self, mat):
+        top=0
+        left=0
+        bottom=len(mat)-1
+        right=len(mat[0])-1
+        arr1=[]
+        while top<=bottom and left<=right:
+            for i in range(left,right+1):
+                arr1.append(mat[top][i])
+            top+=1
+            for i in range(top,bottom):
+                arr1.append(mat[i][right])
+            right-=1
+            if top<=bottom:
+                for i in range(right+1,left-1,-1):
+                    arr1.append(mat[bottom][i])
+                bottom-=1
+            if right>=left:
+                for i in range(bottom,top-1,-1):
+                    arr1.append(mat[i][left])
+                left+=1
+        return arr1
+       # code here
+       
+            
